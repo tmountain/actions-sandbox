@@ -1,0 +1,41 @@
+name: Explore GitHub Runner
+
+on: [push]
+
+jobs:
+  explore:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: List directories
+        run: ls -alh /
+
+      - name: Print environment variables
+        run: printenv
+
+      - name: List installed packages
+        run: |
+          echo "## Installed APT packages"
+          apt list --installed
+
+          echo "## Installed Snap packages"
+          snap list
+
+      - name: Check programming languages
+        run: |
+          python --version
+          node --version
+          java -version
+          dotnet --info
+          go version
+          ruby --version
+          php --version
+          rustc --version
+          terraform --version
+          aws --version
+          az --version
+          gcloud version
+          docker --version
+
