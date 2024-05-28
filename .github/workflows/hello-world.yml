@@ -8,3 +8,5 @@ jobs:
         run: echo "Hello World!"
       - name: my-dir
         run: pwd
+      - name: my-ls
+        run: ls -l
