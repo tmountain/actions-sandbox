@@ -1,16 +1,41 @@
-name: hello-world
-'on': push
+name: Explore GitHub Runner
+
+on: [push]
+
 jobs:
-  my-job:
+  explore:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-      - name: my-step
-        run: echo "Hello World!"
+      - name: List directories
+        run: ls -alh /
 
-      - name: my-dir
-        run: pwd
+      - name: Print environment variables
+        run: printenv
 
-      - name: my-ls
-        run: ls -l
+      - name: List installed packages
+        run: |
+          echo "## Installed APT packages"
+          apt list --installed
+
+          echo "## Installed Snap packages"
+          snap list
+
+      - name: Check programming languages
+        run: |
+          python --version
+          node --version
+          java -version
+          dotnet --info
+          go version
+          ruby --version
+          php --version
+          rustc --version
+          terraform --version
+          aws --version
+          az --version
+          gcloud version
+          docker --version
+
